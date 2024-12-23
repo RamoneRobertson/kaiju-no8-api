@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  release_date: MyString
+  description: MyText
+  rating: 9.99
+  picture: MyString
+  episode_count: 1
+  season: 1
+
+two:
+  title: MyString
+  release_date: MyString
+  description: MyText
+  rating: 9.99
+  picture: MyString
+  episode_count: 1
+  season: 1
