@@ -34,6 +34,11 @@ episodes_elements.each do |element|
   rating = element.search('.ipc-rating-star--rating').text.strip
   episode.rating = rating
 
+  # Find  picture
+  picture = element.at('.ipc-image')
+  picture_url = picture['src']
+  episode.picture = picture_url
+
   ep_info = element.search('.ipc-title__text').text.strip
   ep_season = ep_info.match(/^S(?<season>\d+)\.E(?<episode>\d+)/)
   episode.season = ep_season[:season].to_i
