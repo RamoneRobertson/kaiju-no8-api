@@ -32,12 +32,11 @@ episodes_elements.each do |element|
 
   # Find rating
   rating = element.search('.ipc-rating-star--rating').text.strip
-  p rating.to_f
   episode.rating = rating
 
   ep_info = element.search('.ipc-title__text').text.strip
   ep_season = ep_info.match(/^S(?<season>\d+)\.E(?<episode>\d+)/)
   episode.season = ep_season[:season].to_i
-  episode.episode_count = ep_season[:episode].to_i
+  episode.episode_num = ep_season[:episode].to_i
   episode.save!
 end
