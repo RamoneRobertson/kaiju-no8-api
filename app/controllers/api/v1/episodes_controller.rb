@@ -5,6 +5,10 @@ class Api::V1::EpisodesController < ApplicationController
     else
       @episodes = Episode.all
     end
+
+    if params[:season]
+      @episodes = Episode.where(season: [ params[:season] ])
+    end
     render json: @episodes.order(release_date: :asc)
   end
 
