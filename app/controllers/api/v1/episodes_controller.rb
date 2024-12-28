@@ -1,6 +1,10 @@
 class Api::V1::EpisodesController < ApplicationController
   def index
-    if params[:episode_num]
+    if params[:season] && params[:episode_num]
+      @episodes = Episode.where(season: params[:season], episode_num: [ params[:episode_num].to_i ])
+    elsif params[:season]
+      @episodes = Episode.where(season: params[:season])
+    elsif params[:episode_num]
       @episodes = Episode.where(episode_num: [ params[:episode_num].to_i ])
     else
       @episodes = Episode.all
